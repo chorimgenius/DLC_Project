@@ -38,8 +38,8 @@ class User(AbstractBaseUser):
         max_length=255,
         unique=True,
     )
-    bio = models.CharField(max_length=255)
-    image = models.ImageField(default='', max_length=255,null = True)
+    bio = models.CharField(max_length=255, null=True)
+    image = models.ImageField(default='', max_length=255, null=True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
 
