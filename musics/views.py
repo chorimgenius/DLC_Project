@@ -5,7 +5,7 @@ from rest_framework import status
 from musics import serializers
 from musics.models import Music
 from musics.serializers import MusicSerializer
-from ML_music.test import recommend_songs
+# from ML_music.music_rc import recommend_songs
 from review.models import Review
 
 # Create your views here.
@@ -31,4 +31,5 @@ class MusicLikeView(APIView):
         else:
             review.likes.add(request.user)
             return Response("Like Complete", status=status.HTTP_200_OK)
+            
             
