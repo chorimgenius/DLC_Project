@@ -1,10 +1,8 @@
 from django.db import models
+from user.models import User
 
 class Review(models.Model):
-    ###
-    user = models.ForeignKey(User, on_delte=models.CASCADE) #user를 쓸것인가? name을 쓸것인가
-    name = models.CharField(max_length = 20)
-    ###
+    user = models.ForeignKey(User, on_delete=models.CASCADE) 
     content = models.TextField()
     rank = models.IntegerField()
 
