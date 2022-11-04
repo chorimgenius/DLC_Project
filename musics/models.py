@@ -8,4 +8,4 @@ class Music(models.Model):
     year = models.CharField(max_length=50)
     artists = models.CharField(max_length=50)
     likes = models.ManyToManyField(Review, related_name="like_music")
-    image = models.models.ImageField()
+    music_image = models.ImageField(default='', max_length=255, null=True)
