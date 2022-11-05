@@ -11,7 +11,7 @@ import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 from collections import defaultdict
 
-sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="471f5ad097d044e688c2318eb88bd7f2", client_secret="b8cbdaf1d6c04466af872f64d39df16f"))
+sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="", client_secret=""))
 
 def find_song(name, year):
     song_data = defaultdict()
@@ -90,13 +90,10 @@ def recommend_songs( song_list, spotify_data=data, n_songs=10):
     
     song_center = get_mean_vector(song_list, spotify_data)
     scaler = loaded_model.steps[0][1]
-    print(scaler)
-    print(loaded_model.steps[0][1])
     scaled_data = scaler.transform(spotify_data[number_cols])
     scaled_song_center = scaler.transform(song_center.reshape(1, -1))
     distances = cdist(scaled_song_center, scaled_data, 'cosine')
     index = list(np.argsort(distances)[:, :n_songs][0])
-    print(index)
     
     rec_songs = spotify_data.iloc[index]
     rec_songs = rec_songs[~rec_songs['name'].isin(song_dict['name'])]
