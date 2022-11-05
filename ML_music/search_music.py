@@ -3,11 +3,12 @@ from spotipy.oauth2 import SpotifyClientCredentials
 from collections import defaultdict
 from musics.models import Music
 from user.models import User
-from ML_music.music_rc.py import recommend_songs
+from ML_music.music_rc import recommend_songs
 
 
 def recommend_music(id): # 어떤 정보를 담아서 넣을 것이다.
 
+    sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="", client_secret=""))
     re_song = 10 # # recommend_song 결과물 {'name' : 'Nxde','artists':'idle'}
 
     # views.py 에서 필요한 형태로 Music Model 형태
@@ -21,13 +22,10 @@ def recommend_music(id): # 어떤 정보를 담아서 넣을 것이다.
     song_list = []
     for music in musics2: # music = Music
         song_list.append({'name':music.name,'year':int(music.year)})
-    print(f"song_list : {song_list}")
         
     results = recommend_songs(song_list) # 10개
     results_return = []
     for result in results:
-        print(result)
-        pprint(result['name'])
         search_result = sp.search(result['name'],1,0,"track",market='KR')
         name = search_result["tracks"]["items"][0]["name"]
         music_image = search_result["tracks"]["items"][0]["album"]["images"][1]["url"]

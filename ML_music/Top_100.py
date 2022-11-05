@@ -3,10 +3,12 @@ from spotipy.oauth2 import SpotifyClientCredentials
 from collections import defaultdict
 from musics.models import Music
 from bs4 import BeautifulSoup
+import requests
+
 
 def Top_100_list():
 
-    import requests
+    sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="", client_secret=""))
     header = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko'}
     response = requests.get('https://www.melon.com/chart/index.htm',headers=header) #멜론차트는 헤더정보를 입력해줘야함
     
