@@ -5,7 +5,6 @@ from rest_framework import status
 from musics import serializers
 from musics.models import Music
 from musics.serializers import MusicSerializer, MusicListSerializer
-from ML_music.music_rc import recommend_songs
 from review.models import Review
 from ML_music.Top_100 import Top_100_list
 from ML_music.search_music import recommend_music
@@ -50,5 +49,16 @@ class MusicLikeView(APIView):
         else:
             review.likes.add(request.user)
             return Response("Like Complete", status=status.HTTP_200_OK)
+        
+        
+class Likeview(APIView):
+    def post(self, request, music_id):
+        music = get_object_or_404(Music, id=music_id)
+        if request.user in music.likes.all():
+            music.likes.remove(request.user)
+            return Response("좋아요를 취소했습니다", status=status.HTTP_200_OK)
+        else:
+            music.likes.add(request.user)
+            return Response("좋아요를 눌렀습니다", status=status.HTTP_200_OK)
             
             
