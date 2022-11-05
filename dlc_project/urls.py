@@ -6,5 +6,10 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/', include('user.urls')),
-    path('reviews/', include('review.urls')),
-] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+    path('review/', include('review.urls')),
+    path('music/', include('musics.urls')),
+]
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
