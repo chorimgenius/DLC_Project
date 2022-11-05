@@ -3,7 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework_simplejwt.views import TokenObtainPairView
 from user.models import User
-from user.serializers import UserSerializer, CustomObtainPairSerializer
+from user.serializers import UserSerializer, UserProfileSerializers, CustomObtainPairSerializer
 from django.shortcuts import get_object_or_404
 
 # Create your views here.
@@ -29,3 +29,9 @@ class FollowView(APIView):
         
 class CustomTokenObtainPairView(TokenObtainPairView):
     serializer_class = CustomObtainPairSerializer
+    
+class ProfileView(APIView):
+    def get(self, request, user_id):
+        user = get_object_or_404(User, id=user_id)
+        serializer = UserProfileSerializers(user)
+        return Response(serializer.data)
