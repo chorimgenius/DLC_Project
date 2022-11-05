@@ -3,11 +3,11 @@ from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from user.models import User
 
 class UserSerializer(serializers.ModelSerializer):
-    image = serializers.ImageField(use_url=True)
     
     class Meta:
         model = User
         fields = '__all__'
+    extra_kwargs = {'image': {'required': False}}
         
     def create(self, validated_data):
         user = super().create(validated_data)
