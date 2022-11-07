@@ -2,6 +2,7 @@ from rest_framework.generics import get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.filter import SearchFilter
 from musics import serializers
 from musics.models import Music
 from musics.serializers import MusicSerializer, MusicListSerializer
@@ -49,7 +50,11 @@ class MusicLikeView(APIView):
         else:
             review.likes.add(request.user)
             return Response("Like Complete", status=status.HTTP_200_OK)
-        
+
+class Search(APIView):
+    def post(self, request):
+        data=request.data
+        mu
         
 class Likeview(APIView):
     def post(self, request, music_id):
@@ -60,5 +65,4 @@ class Likeview(APIView):
         else:
             music.likes.add(request.user)
             return Response("좋아요를 눌렀습니다", status=status.HTTP_200_OK)
-            
             
