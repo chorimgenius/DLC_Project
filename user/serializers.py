@@ -23,6 +23,13 @@ class UserSerializer(serializers.ModelSerializer):
         user.save()
         return user
     
+class UserProfileUpdateSerializers(serializers.ModelSerializer):
+    
+    class Meta:
+        model = User
+        fields = ("id", "username", "email", "bio" , "image")
+    extra_kwargs = {'image': {'required': False}}
+    
 class CustomObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
     def get_token(cls, user):
