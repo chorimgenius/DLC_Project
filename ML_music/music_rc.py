@@ -12,7 +12,6 @@ from spotipy.oauth2 import SpotifyClientCredentials
 from collections import defaultdict
 
 sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="", client_secret=""))
-
 def find_song(name, year):
     song_data = defaultdict()
     results = sp.search(q= 'track: {} year: {}'.format(name,year), limit=1)
