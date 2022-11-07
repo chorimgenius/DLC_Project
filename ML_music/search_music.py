@@ -8,7 +8,7 @@ from ML_music.music_rc import recommend_songs
 
 def recommend_music(id): # 어떤 정보를 담아서 넣을 것이다.
 
-    sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="", client_secret=""))
+    sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="", client_secret=""))    
     re_song = 10 # # recommend_song 결과물 {'name' : 'Nxde','artists':'idle'}
 
     # views.py 에서 필요한 형태로 Music Model 형태

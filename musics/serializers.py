@@ -6,10 +6,10 @@ class MusicListSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Music
-        fields = ("name","year","artists","album","likes","music_image",)
+        fields = "__all__"
         
 class MusicSerializer(serializers.ModelSerializer):
     likes = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
     class Meta:
         model = Music
-        field = ("name","year","album")
+        fields = "__all__"
