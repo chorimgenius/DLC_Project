@@ -3,8 +3,8 @@ from user.models import User
 from musics.models import Music
 
 class Review(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE) 
-    music = models.ForeignKey(Music, on_delete=models.CASCADE, null=True, default='')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='review_user') 
+    music = models.ForeignKey(Music, on_delete=models.CASCADE, null=True, default='', related_name='review_set')
     content = models.TextField()
     rank = models.IntegerField()
 

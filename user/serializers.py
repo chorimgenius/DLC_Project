@@ -1,14 +1,28 @@
 from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from user.models import User
+from musics.serializers import MusicSerializer
 
 class UserProfileSerializers(serializers.ModelSerializer):
+
+
     followings = serializers.StringRelatedField(many=True)
     followers = serializers.StringRelatedField(many=True)
     
     class Meta:
         model = User
         fields = ("id", "username", "email", "bio" , "image", "followings", "followers")
+
+class UserProfileMusicSerializers(serializers.ModelSerializer):
+    
+    music = MusicSerializer(many=True)
+
+    followings = serializers.StringRelatedField(many=True)
+    followers = serializers.StringRelatedField(many=True)
+    
+    class Meta:
+        model = User
+        fields = ("id", "username", "email", "bio" , "image", "followings", "followers", "music")
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:

@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 
 loaded_model = joblib.load('./music.pkl')
-data = pd.read_csv("data.csv") # 이거를 db에 저장?
+data = pd.read_csv("data.csv")
 
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
