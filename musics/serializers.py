@@ -2,7 +2,6 @@ from rest_framework import serializers
 from musics.models import Music
 
 class MusicListSerializer(serializers.ModelSerializer): 
-    # music = serializers.SerializerMethodField()
     
     class Meta:
         model = Music
