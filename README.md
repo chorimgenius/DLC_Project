@@ -73,3 +73,5 @@
 ## 머신러닝 데이터셋
 [![Spotify dataset](https://user-images.githubusercontent.com/113073974/200451893-73c26183-c753-444f-bcad-2628a2971d26.png)](https://www.kaggle.com/datasets/vatsalmavani/spotify-dataset)
 ## 프로젝트 시연영상
+
+![Youtube](https://user-images.githubusercontent.com/113073974/200463994-934e4f53-0c73-47a4-ad76-df55e1c19c55.png)
