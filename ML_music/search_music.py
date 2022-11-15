@@ -8,7 +8,7 @@ from ML_music.music_rc import recommend_songs
 
 def recommend_music(id): # 어떤 정보를 담아서 넣을 것이다.
 
-    sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="", client_secret=""))
+    sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="471f5ad097d044e688c2318eb88bd7f2", client_secret="b8cbdaf1d6c04466af872f64d39df16f"))
     re_song = 10 
 
     results = [] 

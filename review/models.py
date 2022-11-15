@@ -1,5 +1,7 @@
 from django.db import models
 from user.models import User
+#from user import models as user
+#from musics import models as musics
 from musics.models import Music
 
 class Review(models.Model):

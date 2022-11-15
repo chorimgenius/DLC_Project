@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from musics import serializers
 from musics.models import Music
-from musics.serializers import MusicSerializer, MusicListSerializer
+from musics.serializers import MusicSerializer, MusicListSerializer, MusicDetailSerializer
 from review.models import Review
 from ML_music.Top_100 import Top_100_list
 from ML_music.search_music import recommend_music
@@ -40,17 +40,23 @@ class MusicDetailView(APIView):
     def get(self, request, music_id):
         serializer_list = []
         music = get_object_or_404(Music, id=music_id)
-        serializer = MusicSerializer(music)
-        serializer_list.append(serializer.data)
-        if music in request.user.likes_music.all():
-            serializer_list.append(1)
-        else:
-            serializer_list.append(0)
-        reviews = music.review_set.all()
-        review_serializer = ReviewSerializer(reviews,many=True)
+        serializer = MusicDetailSerializer(music)
+        # serializer_list.append(serializer.data)
+        # if music in request.user.likes_music.all():
+        #     serializer_list.append(1)
+        # else:
+        #     serializer_list.append(0)
+        # reviews = music.review_set.all()
+        # review_serializer = ReviewSerializer(reviews,many=True)
 
-        serializer_list.append(review_serializer.data)
-        return Response(serializer_list, status=status.HTTP_200_OK)
+        # serializer_list.append(review_serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+        """
+        [music],[0,1],[review]
+
+        [music(music,likes,review)]
+        """
     
 
         

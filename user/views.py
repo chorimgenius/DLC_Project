@@ -36,7 +36,7 @@ class ProfileView(APIView):
         user = User.objects.get(id=user_id)
         serializer_list = []
         musics = User.objects.get(id=user_id).likes_music.all()
-        music_serializer = MusicListSerializer(musics,many=True)
+        music_serializer = MusicListSerializer(musics, many=True)
         serializer_user = UserProfileSerializers(user)
         serializer_list.append(serializer_user.data)
         serializer_list.append(music_serializer.data)
