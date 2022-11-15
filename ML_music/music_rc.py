@@ -4,7 +4,7 @@ import joblib
 import pandas as pd
 import numpy as np
 
-loaded_model = joblib.load('./music.pkl')
+loaded_model = joblib.load('ML_music/music.pkl')
 data = pd.read_csv("ML_music/data.csv")
 
 import spotipy
@@ -12,7 +12,7 @@ from spotipy.oauth2 import SpotifyClientCredentials
 from collections import defaultdict
 def find_song(name, year):
     song_data = defaultdict()
-    sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="471f5ad097d044e688c2318eb88bd7f2", client_secret="b8cbdaf1d6c04466af872f64d39df16f"))
+    sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="", client_secret=""))
     results = sp.search(q= 'track: {} year: {}'.format(name,year), limit=1)
     if results['tracks']['items'] == []:
         return None
