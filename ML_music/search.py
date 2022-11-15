@@ -8,7 +8,7 @@ from ML_music.music_rc import recommend_songs
 
 def search_music(search_title): 
 
-    sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="", client_secret=""))
+    sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="471f5ad097d044e688c2318eb88bd7f2", client_secret="b8cbdaf1d6c04466af872f64d39df16f"))
     search_result = sp.search(search_title,1,0,"track",market='KR')
     name = search_result["tracks"]["items"][0]["name"]
     music_image = search_result["tracks"]["items"][0]["album"]["images"][1]["url"]

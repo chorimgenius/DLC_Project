@@ -13,6 +13,12 @@ class UserProfileSerializers(serializers.ModelSerializer):
         model = User
         fields = ("id", "username", "email", "bio" , "image", "followings", "followers")
 
+class UserReviewSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = User
+        fields = ("username", "image")
+
 class UserProfileMusicSerializers(serializers.ModelSerializer):
     
     music = MusicSerializer(many=True)
