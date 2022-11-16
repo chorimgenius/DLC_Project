@@ -40,7 +40,6 @@ class User(AbstractBaseUser):
     )
     bio = models.CharField(max_length=255, null=True)
     image = models.ImageField(upload_to='%Y/%m/', default='/default_profile.png', max_length=255, null=True,)
-    followings = models.ManyToManyField('self', symmetrical=False, related_name='followers', blank=True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
 
