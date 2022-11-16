@@ -17,17 +17,6 @@ class UserView(APIView):
         else:
             return Response({"message" : f"${serializer.errors}"}, status=status.HTTP_400_BAD_REQUEST)
         
-class FollowView(APIView):
-    def post(self, request, user_id):
-        you = get_object_or_404(User, id=user_id)
-        me = request.user
-        if me in you.followers.all():
-            you.followers.remove(me)
-            return Response("Unfollow 했습니다.", status=status.HTTP_200_OK)
-        else:
-            you.followers.add(me)
-            return Response("follow 했습니다.", status=status.HTTP_200_OK)
-        
 class CustomTokenObtainPairView(TokenObtainPairView):
     serializer_class = CustomObtainPairSerializer
     
