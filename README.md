@@ -7,6 +7,16 @@
 2022.11.02 ~ 2022.11.08
 ## front-end github-address
 [DLC_front](https://github.com/marinred/DLC_Front)
+## 기술 스택
+<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white" align='left'/>
+<img src="https://img.shields.io/badge/django-092E20?style=for-the-badge&logo=django&logoColor=white" align='left'/>
+<img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white" align='left'>
+<img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" align='left'>
+<img src="https://img.shields.io/badge/linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" align='left'>
+<img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white" align='left'>
+<img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white" align='left'><br/>
+
+
 ## 역할 파트
 - **front-end** :
   - 임동근(노래 상세 페이지)
